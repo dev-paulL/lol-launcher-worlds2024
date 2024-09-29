@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  z-index: 10;
+  background: transparent;
+  position: relative;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+ul li a {
+  color: #ffd991;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.nav-buttons button {
+  background: transparent;
+  border: 1px solid white;
+  padding: 0.7rem;
+  cursor: pointer;
+}
+.active,
+nav ul li a:hover {
+  color: #ffebc6;
+  position: relative;
+}
+
+.active::after {
+  position: absolute;
+  content: "";
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #fadda7;
+  border-bottom: 1px solid white;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  transform: rotateX(45deg);
+}
+
+body {
+  background: transparent;
+  color: #ffff;
+  padding: 1rem;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+}
+main {
+  margin-top: 1rem;
+  height: max-content;
+}
+.logo {
+  margin: 0 auto;
+  display: block;
+  width: 35%;
+}
+.articles-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 95%;
+  gap: 3rem;
+  margin: 3rem auto;
+  max-width: 1600px;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+}
+
+article img {
+  max-width: 100%;
+  border: 2px solid black;
+}
+
+h2 {
+  font-family: Impact, sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+
+p {
+  font-size: 1.2rem;
+  width: 89%;
+  margin: 0 auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radial-button {
+  font-size: 2rem;
+  color: white;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: background 0.5s ease, transform 0.3s ease;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.radial-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.243) 0%, rgba(65, 255, 246, 0.386) 100%);
+  transition: all 0.5s ease;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.radial-button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.radial-button:hover {
+  border: 1px solid cyan;
+  color: cyan;
+}
+
+.main-wrapper {
+  z-index: 10;
+  background: transparent;
+  position: relative;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+}
+.grid-item {
+  background-color: black;
+  animation: colorChange 4s ease-in infinite;
+}
+
+/* Background Animation */
+@keyframes colorChange {
+  0%,
+  100% {
+    background-color: #000000;
+  }
+  50% {
+    background-color: #0000ff;
+  }
+}
+.grid-item:nth-child(1),
+.grid-item:nth-child(16) {
+  animation-delay: 1.75s;
+}
+.grid-item:nth-child(2),
+.grid-item:nth-child(15) {
+  animation-delay: 1.5s;
+}
+.grid-item:nth-child(3),
+.grid-item:nth-child(14) {
+  animation-delay: 1.25s;
+}
+.grid-item:nth-child(4),
+.grid-item:nth-child(13) {
+  animation-delay: 1s;
+}
+.grid-item:nth-child(5),
+.grid-item:nth-child(12) {
+  animation-delay: 0.75s;
+}
+.grid-item:nth-child(6),
+.grid-item:nth-child(11) {
+  animation-delay: 0.5s;
+}
+.grid-item:nth-child(7),
+.grid-item:nth-child(10) {
+  animation-delay: 0.25s;
+}
+.grid-item:nth-child(8),
+.grid-item:nth-child(9) {
+  animation-delay: 0s;
+}
